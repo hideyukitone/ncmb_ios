@@ -1660,10 +1660,6 @@ static void dynamicSetterLongLong(id self, SEL _cmd, long long int value) {
         NCMBUser *user = [[NCMBUser alloc] initWithClassName:@"user"];
         [user afterFetch:result isRefresh:YES];
         return user;
-    } else if ([ncmbClassName isEqualToString:@"push"]){
-        NCMBPush *push = [NCMBPush push];
-        [push afterFetch:result isRefresh:YES];
-        return push;
     } else if ([ncmbClassName isEqualToString:@"installation"]){
         NCMBInstallation *installation = [NCMBInstallation currentInstallation];
         [installation afterFetch:result isRefresh:YES];

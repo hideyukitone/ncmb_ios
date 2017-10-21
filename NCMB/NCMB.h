@@ -16,9 +16,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "NCMBAnalytics.h"
 #import "NCMBInstallation.h"
-#import "NCMBPush.h"
 #import "NCMBAnonymousUtils.h"
 #import "NCMBQuery.h"
 #import "NCMBGeoPoint.h"
