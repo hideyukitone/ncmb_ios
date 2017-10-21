@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.homepage     = "http://mb.cloud.nifty.com"
   s.license      = "Apache License, Version 2.0"
   s.author             = "NIFTY Corporation"
-  s.platform     = :ios, "5.1"
+  s.platform     = :osx, “10.12”
   s.source       = { :git => 'https://github.com/NIFTYCloud-mbaas/ncmb_ios.git', :tag => 'v2.4.0' }
   s.source_files  = "NCMB/**/*.{h,m,c}"
   s.frameworks = "Foundation", "UIKit", "MobileCoreServices", "AudioToolbox", "SystemConfiguration"
