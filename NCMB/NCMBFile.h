@@ -15,7 +15,6 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <MobileCoreServices/MobileCoreServices.h>
 #import "NCMBObject.h"
 //#import "NCMBSubclassing.h"
 
