@@ -17,6 +17,6 @@ Pod::Spec.new do |s|
   s.platform     = :osx, “10.12”
   s.source       = { :git => 'https://github.com/NIFTYCloud-mbaas/ncmb_ios.git', :tag => 'v2.4.0' }
   s.source_files  = "NCMB/**/*.{h,m,c}"
-  s.frameworks = "Foundation", "UIKit", "MobileCoreServices", "AudioToolbox", "SystemConfiguration"
+  s.frameworks = "Foundation", "AudioToolbox", "SystemConfiguration"
   s.requires_arc = true
 end
