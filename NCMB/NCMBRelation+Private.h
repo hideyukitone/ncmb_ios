@@ -14,22 +14,9 @@
  limitations under the License.
  */
 
-#import "NCMBObject.h"
+#import "NCMBRelation.h"
 
-@class NCMBQuery;
+@interface NCMBRelation (Private)
 
-@interface NCMBObject (Subclass)
-
-/*! @name Methods */
-
-- (id)init;
-
-+ (id)object;
-
-+ (id)objectWithoutDataWithObjectId:(NSString *)objectId;
-
-+ (void)registerSubclass;
-
-+ (NCMBQuery *)query;
 
 @end

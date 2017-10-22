@@ -14,22 +14,21 @@
  limitations under the License.
  */
 
-#import "NCMBObject.h"
+#import <Foundation/Foundation.h>
 
-@class NCMBQuery;
+@interface NCMBRelationOperation : NSObject
 
-@interface NCMBObject (Subclass)
+@property (nonatomic,strong)NSString *tagetClass;
+@property (nonatomic,strong)NSMutableSet *relationToAdd;
+@property (nonatomic,strong)NSMutableSet *relationToRemove;
 
-/*! @name Methods */
 
-- (id)init;
+- (id)init:(NSMutableSet *)newRelationsToAdd newRelationsToRemove:(NSMutableSet *)newRelationsToRemove;
 
-+ (id)object;
+- (id)apply:(id)oldValue NCMBObject:(id)object forkey:(NSString *)key;
 
-+ (id)objectWithoutDataWithObjectId:(NSString *)objectId;
+- (id)mergeWithPrevious:(id)previous;
 
-+ (void)registerSubclass;
-
-+ (NCMBQuery *)query;
+- (id)encode;
 
 @end

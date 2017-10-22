@@ -14,22 +14,23 @@
  limitations under the License.
  */
 
-#import "NCMBObject.h"
+#import "NCMBUser.h"
+#import "NCMBObject+Private.h"
 
-@class NCMBQuery;
+@interface NCMBUser (Private)
+/**
+ 現在ログイン中のユーザーのセッショントークンを返す
+ */
++ (NSString *)getCurrentSessionToken;
 
-@interface NCMBObject (Subclass)
+/**
+ ログアウトの処理
+ */
++ (void)logOutEvent;
 
-/*! @name Methods */
-
-- (id)init;
-
-+ (id)object;
-
-+ (id)objectWithoutDataWithObjectId:(NSString *)objectId;
-
-+ (void)registerSubclass;
-
-+ (NCMBQuery *)query;
+/**
+ ログインユーザーをファイルに保存する
+ */
++ (void) saveToFileCurrentUser:(NCMBUser *)user;
 
 @end

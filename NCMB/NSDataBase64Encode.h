@@ -14,22 +14,8 @@
  limitations under the License.
  */
 
-#import "NCMBObject.h"
+#import <Foundation/Foundation.h>
 
-@class NCMBQuery;
-
-@interface NCMBObject (Subclass)
-
-/*! @name Methods */
-
-- (id)init;
-
-+ (id)object;
-
-+ (id)objectWithoutDataWithObjectId:(NSString *)objectId;
-
-+ (void)registerSubclass;
-
-+ (NCMBQuery *)query;
-
+@interface NSDataBase64Encode : NSObject
++(NSString *)stringEncodedWithBase64:(NSData*)data;
 @end

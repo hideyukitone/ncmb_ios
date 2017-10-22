@@ -1,5 +1,5 @@
 /*
- Copyright 2017 FUJITSU CLOUD TECHNOLOGIES LIMITED All Rights Reserved.
+ Copyright 2014 NIFTY Corporation All Rights Reserved.
  
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -122,25 +122,18 @@
 - (void)signUpInBackgroundWithTarget:(id)target selector:(SEL)selector;
 
 /**
+ facebookのauthDataをもとにニフティクラウドmobile backendへの会員登録(ログイン)を行う
+ @param facebookInfo Facebook認証に必要なauthData
+ @param block サインアップ後に実行されるblock
+ */
+- (void)signUpWithFacebookToken:(NSDictionary*)facebookInfo block:(NCMBErrorResultBlock)block;
+
+/**
  googleのauthDataをもとにニフティクラウドmobile backendへの会員登録(ログイン)を行う
  @param googleInfo google認証に必要なauthData
  @param block サインアップ後に実行されるblock
  */
-- (void)signUpWithGoogleToken:(NSDictionary *)googleInfo withBlock:(NCMBErrorResultBlock)block;
-
-/**
- twitterのauthDataをもとにニフティクラウドmobile backendへの会員登録(ログイン)を行う
- @param twitterInfo twitter認証に必要なauthData
- @param block サインアップ後に実行されるblock
- */
-- (void)signUpWithTwitterToken:(NSDictionary *)twitterInfo withBlock:(NCMBErrorResultBlock)block;
-
-/**
- facebookのauthDataをもとにニフティクラウドmobile backendへの会員登録(ログイン)を行う
- @param facebookInfo facebook認証に必要なauthData
- @param block サインアップ後に実行されるblock
- */
-- (void)signUpWithFacebookToken:(NSDictionary *)facebookInfo withBlock:(NCMBErrorResultBlock)block;
+- (void)signUpWithGoogleToken:(NSDictionary*)googleInfo block:(NCMBErrorResultBlock)block;
 
 #pragma mark requestAuthenticationMail
 /** @name requestAuthenticationMail */
@@ -323,28 +316,12 @@
 /** @name link */
 
 /**
- ログイン中のユーザー情報に、googleの認証情報を紐付ける
+ 他の認証方法でログイン中のcurrentUserに、googleの認証情報を紐付ける
  @param googleInfo googleの認証情報（idとaccess_token）
  @param block 既存のauthDataのgoogle情報のみ更新後実行されるblock。エラーがあればエラーのポインタが、なければnilが渡される。
  */
 - (void)linkWithGoogleToken:(NSDictionary *)googleInfo
                   withBlock:(NCMBErrorResultBlock)block;
-
-/**
- ログイン中のユーザー情報に、twitterの認証情報を紐付ける
- @param twitterInfo twitterの認証情報
- @param block 既存のauthDataのtwitter情報のみ更新後実行されるblock。エラーがあればエラーのポインタが、なければnilが渡される。
- */
-- (void)linkWithTwitterToken:(NSDictionary *)twitterInfo
-                   withBlock:(NCMBErrorResultBlock)block;
-
-/**
- ログイン中のユーザー情報に、facebookの認証情報を紐付ける
- @param facebookInfo facebookの認証情報
- @param block 既存のauthDataのfacebook情報のみ更新後実行されるblock。エラーがあればエラーのポインタが、なければnilが渡される。
- */
-- (void)linkWithFacebookToken:(NSDictionary *)facebookInfo
-                    withBlock:(NCMBErrorResultBlock)block;
 
 /**
  会員情報に、引数で指定したtypeの認証情報が含まれているか確認する
@@ -360,14 +337,5 @@
  */
 - (void)unlink:(NSString *)type
      withBlock:(NCMBErrorResultBlock)block;
-
-#pragma mark - mailAddressConfirm
-/** @name mailAddressConfirm */
-
-/**
- メールアドレスが確認済みのものかを把握する
- @return メールアドレスが確認済みの場合はYESを返す
- */
-- (BOOL)isMailAddressConfirm;
 
 @end

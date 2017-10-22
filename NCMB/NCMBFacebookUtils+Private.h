@@ -14,22 +14,13 @@
  limitations under the License.
  */
 
-#import "NCMBObject.h"
+#import "NCMBFacebookUtils.h"
 
-@class NCMBQuery;
+@interface NCMBFacebookUtils (Private)
 
-@interface NCMBObject (Subclass)
-
-/*! @name Methods */
-
-- (id)init;
-
-+ (id)object;
-
-+ (id)objectWithoutDataWithObjectId:(NSString *)objectId;
-
-+ (void)registerSubclass;
-
-+ (NCMBQuery *)query;
+/**
+ Facebookのセッションをクリアする
+ */
++(void)clearFacebookSession;
 
 @end

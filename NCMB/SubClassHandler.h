@@ -14,22 +14,16 @@
  limitations under the License.
  */
 
-#import "NCMBObject.h"
+/**
+ サブクラスを保持する
+ */
 
-@class NCMBQuery;
+#import <Foundation/Foundation.h>
+#define Subclass_Handler [SubClassHandler sharedInstance]
+@interface SubClassHandler : NSObject
 
-@interface NCMBObject (Subclass)
-
-/*! @name Methods */
-
-- (id)init;
-
-+ (id)object;
-
-+ (id)objectWithoutDataWithObjectId:(NSString *)objectId;
-
-+ (void)registerSubclass;
-
-+ (NCMBQuery *)query;
+-(NSString *)className:(NSString *)ncmbClassName;
+-(void)setSubClassName:(NSString *)className ncmbClassName:(NSString *)ncmbClassName;
++(SubClassHandler*)sharedInstance;
 
 @end

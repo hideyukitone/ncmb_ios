@@ -14,22 +14,36 @@
  limitations under the License.
  */
 
-#import "NCMBObject.h"
+#import "NCMBSetOperation.h"
 
-@class NCMBQuery;
+@implementation NCMBSetOperation
 
-@interface NCMBObject (Subclass)
+- (id)initWithClassName:(id)newValue{
+    self = [super init];
+    if( self ) {
+        self.value=newValue;
+    }
+    return self;
+}
 
-/*! @name Methods */
+-(id)encode{
+    if (self.value != nil){
+        return self.value;
+    } else {
+        return [NSNull null];
+    }
+}
 
-- (id)init;
 
-+ (id)object;
+- (id)getValue{
+    return self.value;
+}
 
-+ (id)objectWithoutDataWithObjectId:(NSString *)objectId;
+- (id)apply:(id)oldValue NCMBObject:(id)object forkey:(NSString *)key{
+    return self.value;
+}
 
-+ (void)registerSubclass;
-
-+ (NCMBQuery *)query;
-
+- (id)mergeWithPrevious:(id)previous{
+    return self;
+}
 @end

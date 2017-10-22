@@ -14,22 +14,19 @@
  limitations under the License.
  */
 
-#import "NCMBObject.h"
+#import <Foundation/Foundation.h>
 
-@class NCMBQuery;
+@interface NCMBAddOperation : NSObject
 
-@interface NCMBObject (Subclass)
+@property (nonatomic,strong)NSMutableArray *objects;
 
-/*! @name Methods */
+- (NCMBAddOperation *)initWithClassName:(id)newValue;
 
-- (id)init;
+- (NSMutableDictionary *)encode;
 
-+ (id)object;
+- (id)mergeWithPrevious:(id)previous;
 
-+ (id)objectWithoutDataWithObjectId:(NSString *)objectId;
+- (id)apply:(id)oldValue NCMBObject:(id)object forkey:(NSString *)key;
 
-+ (void)registerSubclass;
-
-+ (NCMBQuery *)query;
 
 @end

@@ -14,22 +14,24 @@
  limitations under the License.
  */
 
-#import "NCMBObject.h"
+#import "NCMBDeleteOperation.h"
 
-@class NCMBQuery;
+@implementation NCMBDeleteOperation
 
-@interface NCMBObject (Subclass)
+-(id)encode{
+    return [NSNull null];
+}
 
-/*! @name Methods */
+- (id)getValue{
+    return nil;
+}
 
-- (id)init;
+- (id)apply:(id)oldValue NCMBObject:(id)object forkey:(NSString *)key{
+    return nil;
+}
 
-+ (id)object;
-
-+ (id)objectWithoutDataWithObjectId:(NSString *)objectId;
-
-+ (void)registerSubclass;
-
-+ (NCMBQuery *)query;
+- (id)mergeWithPrevious:(id)previous{
+    return self;
+}
 
 @end
